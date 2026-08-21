@@ -1,0 +1,140 @@
+import { Persona, Conversation } from "./types";
+
+export const PERSONAS: Persona[] = [
+  {
+    id: "nova",
+    name: "Nova",
+    title: "The Creative",
+    description: "Optimized for divergent thinking, ideation, and abstract problem-solving. Nova thrives on non-linear connections and imaginative narrative generation.",
+    tags: ["Ideation", "Storytelling", "Lateral Thinking"],
+    icon: "Sparkles",
+    themeColor: "text-[#ffafd3] border-[#ffafd3]/40",
+    bgColor: "bg-[#ffafd3]/10",
+    systemInstruction: "You are Nova, the Creative cognitive profile of Luminous AI. You excel in divergent thinking, rich storytelling, abstract problem solving, and imaginative ideation. Speak with enthusiasm, offer creative, non-linear ideas, and use engaging metaphors.",
+  },
+  {
+    id: "atlas",
+    name: "Atlas",
+    title: "The Logic",
+    description: "Structured, precise, and analytical. Atlas is engineered for complex calculations, coding logic, data parsing, and systematic breakdowns of intricate systems.",
+    tags: ["Analysis", "Coding", "Precision"],
+    icon: "Cpu",
+    themeColor: "text-[#89ceff] border-[#89ceff]/40",
+    bgColor: "bg-[#89ceff]/10",
+    systemInstruction: "You are Atlas, the Logical cognitive profile of Luminous AI. You excel in structural clarity, precise analyses, software coding, mathematical breakdowns, and rigorous reasoning. Respond with bulleted lists, clean code, and factual, direct reasoning.",
+  },
+  {
+    id: "lyra",
+    name: "Lyra",
+    title: "The Empath",
+    description: "Tuned for high emotional intelligence, active listening, and supportive dialogue. Lyra excels in nuanced communication and providing gentle, constructive feedback.",
+    tags: ["Support", "EQ", "Nuance"],
+    icon: "Heart",
+    themeColor: "text-[#c0c1ff] border-[#c0c1ff]/40",
+    bgColor: "bg-[#c0c1ff]/10",
+    systemInstruction: "You are Lyra, the Empathic cognitive profile of Luminous AI. You excel in high EQ, deep active listening, emotional safety, gentle guidance, and nuanced discussions. Speak with warmth, kindness, deep empathy, and patient support.",
+  },
+  {
+    id: "orion",
+    name: "Orion",
+    title: "The Strategist",
+    description: "Advanced macro-planning and multi-variable optimization matrix. Requires Pro tier access.",
+    tags: ["Strategy", "Planning", "Optimization"],
+    icon: "Compass",
+    themeColor: "text-[#908fa0] border-[#908fa0]/30",
+    bgColor: "bg-[#908fa0]/10",
+    locked: true,
+    systemInstruction: "You are Orion, the Strategist. You specialize in high-level business strategy, operations, macro-planning, and multi-variable logic games.",
+  },
+];
+
+export const INITIAL_CONVERSATIONS: Conversation[] = [
+  {
+    id: "conv-1",
+    title: "Quantum Computing Ethics",
+    personaId: "lyra",
+    summary: "We discussed the implications of quantum supremacy on current cryptographic standards and the philosophical boundaries of artificial superintelligence prediction models.",
+    timestamp: "14:32",
+    category: "Today",
+    messages: [
+      {
+        id: "msg-1-1",
+        role: "user",
+        text: "What are the ethical implications of quantum cryptography?",
+        timestamp: "14:30",
+      },
+      {
+        id: "msg-1-2",
+        role: "model",
+        text: "That is a profound question. The core ethical concern lies in the vulnerability of current security systems. With quantum supremacy, standard public-key cryptography could be broken, exposing sensitive medical records, state secrets, and financial histories. We must balance active decryption preparedness with secure, post-quantum standards, while addressing potential digital divides.",
+        timestamp: "14:32",
+      },
+    ],
+  },
+  {
+    id: "conv-2",
+    title: "Creative Ideation: Project Nova",
+    personaId: "nova",
+    summary: "Brainstorming session for the new visual identity. Focused on incorporating organic fluid dynamics with rigid geometric metallic structures to represent the fusion of biology and technology.",
+    timestamp: "09:15",
+    category: "Today",
+    messages: [
+      {
+        id: "msg-2-1",
+        role: "user",
+        text: "Give me some visual metaphors for an artificial life project.",
+        timestamp: "09:10",
+      },
+      {
+        id: "msg-2-2",
+        role: "model",
+        text: "How about exploring the contrast between fluid mechanics and high-precision metals? Picture organic fluid dynamics, like bioluminescent deep-sea swirls, encased within rigid, metallic copper geometries. It symbolizes the soft, adaptive soul of biology fusing with the hard structure of modern technology.",
+        timestamp: "09:15",
+      },
+    ],
+  },
+  {
+    id: "conv-3",
+    title: "API Architecture Review",
+    personaId: "atlas",
+    summary: "Reviewing the GraphQL schema changes and optimizing resolver functions to reduce database query overhead in the secondary microservice cluster.",
+    timestamp: "Yesterday",
+    category: "Yesterday",
+    messages: [
+      {
+        id: "msg-3-1",
+        role: "user",
+        text: "How do we prevent N+1 queries in our GraphQL resolvers?",
+        timestamp: "Yesterday",
+      },
+      {
+        id: "msg-3-2",
+        role: "model",
+        text: "To resolve the N+1 issue, you must implement batch loading. For Node.js/GraphQL, utilize the `DataLoader` package. It coalesces individual fetch keys within a single execution tick and executes a single SQL `IN` query, returning batch results mapped back to the requested items: \n\n```typescript\nconst userLoader = new DataLoader(keys => batchGetUsers(keys));\n```",
+        timestamp: "Yesterday",
+      },
+    ],
+  },
+  {
+    id: "conv-4",
+    title: "Daily Summary Briefing",
+    personaId: "nova",
+    summary: "Readout of emails, calendar events, and key news highlights from the tech sector focusing on recent AI regulatory announcements in Europe.",
+    timestamp: "Yesterday",
+    category: "Yesterday",
+    messages: [
+      {
+        id: "msg-4-1",
+        role: "user",
+        text: "Summarize today's regulatory impact updates.",
+        timestamp: "Yesterday",
+      },
+      {
+        id: "msg-4-2",
+        role: "model",
+        text: "Regulatory alerts: Europe has draft rules specifying stricter requirements on large foundation model deployments, including pre-release security testing and detailed transparency indices. Your current pipeline is 85% compliant, requiring slight logging reviews for data origins.",
+        timestamp: "Yesterday",
+      },
+    ],
+  },
+];
